@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Hello World Green Background Extension",
+  "version": "1.0",
+  "description": "Changes the background color to green when button is clicked",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
