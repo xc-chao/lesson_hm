@@ -6,11 +6,11 @@ html{
     background-size: cover;
 }
 .keys{
-    display: flex;
-    height: 100vh;
-    flex:1;
-    align-items: center;
-    justify-content: center;
+    display: flex;/*弹性布局*/
+    height: 100vh;/*高度*/
+    flex:1;/*弹性布局*/
+    align-items: center;/*垂直居中*/
+    justify-content: center;/*水平居中*/
 }
 .key{
     border: 4px solid black;
@@ -32,5 +32,4 @@ html{
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #ffc600;
-
 }
