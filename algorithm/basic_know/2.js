@@ -9,4 +9,5 @@ function traverse(arr) {
   }
 
   // 1+1+n+1+n+n+n+n+n*n+n*n+n*n=T(3n+3n*n+3)=O(n*n)
+  // O(n^2) 把握主要矛盾， 忽略次要，系数不重要
   traverse();
