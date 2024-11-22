@@ -2,7 +2,7 @@
     console.log(a);
     // 堆内存 大对象  
     let largeObject = {
-        data:new Array(10).fill('a'),
+        data:new Array(10000000000).fill('a'),
     }
     // 设计为null类型 释放内存
     largeObject = null;

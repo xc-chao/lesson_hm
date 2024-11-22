@@ -5,8 +5,6 @@
 - 七上八下 因为es6新推出的bigint 类型，和number归类于一种数据类型numeric。
   **内存分配机制**
   **拷贝，引用式** 
-  - 高手会讲8种
-  - 高高手讲7种
 
   - 简单数据类型
     numeric（number+bigint）， string， boolean， null， undefined， symbol
