@@ -5,26 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coze Logo AIGC</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 添加样式以区分不同的列 */
+        .col-md-6 {
+            padding: 20px;
+            background-color: #f8f9fa; /* 浅灰色背景 */
+            border: 1px solid #1469be; /* 边框线 */
+            margin-top: 20px; /* 列之间的间距 */
+        }
+        .inner-col {
+            background-color: pink; /* 更深一点的背景色，用于内嵌的列 */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <!-- 分栏 页面布局 -->
+            <!-- 左侧主栏 -->
             <div class="col-md-6">
-                6
+                <p>左侧主栏 - 占据6个栅格单位</p>
                 <div class="row">
-                    <div class="col-md-6">
-                        3
+                    <!-- 内部左栏 -->
+                    <div class="col-md-6 inner-col">
+                        <p>内部左栏 - 占据父级容器的3个栅格单位</p>
                     </div>
-                    <div class="col-md-6">
-                        3
+                    <!-- 内部右栏 -->
+                    <div class="col-md-6 inner-col">
+                        <p>内部右栏 - 占据父级容器的3个栅格单位</p>
                     </div>
                 </div>
             </div>
+            <!-- 右侧主栏 -->
             <div class="col-md-6">
-                6
+                <p>右侧主栏 - 占据6个栅格单位</p>
             </div>
-            
         </div>
     </div>
 </body>
