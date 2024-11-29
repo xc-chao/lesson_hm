@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>选择器</title>
+  <style>
+    /* 相邻兄弟选择器 下面的那个 */
+    h1 + p{ 
+        color: red;
+    }
+    /* 通用兄弟选择器 */
+    h1 ~ p{
+      color: blue;
+    }
+    /* 后代选择器 */
+   .container p{
+      color: green;
+    }
+    /* 子元素选择器 */
+   .container > p{
+      color: yellow;
+    }
+    /* 伪类选择器 */
+    a:link{
+      color: rgb(255, 0, 43);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>标题</h1>
+    <p>这是第一段文字</p>
+    <p>这是第二段文字</p>
+    <a href="">链接</a>
+    <span>这是一个span元素</span>
+    <div class="inner">
+      <p>这是一个内部的段落</p>
+    </div>
+  </div>
+</body>
+</html>
