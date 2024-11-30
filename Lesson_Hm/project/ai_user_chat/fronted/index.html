@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Users Rag chatbot</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!--col-md-6 col-md-offset-3 占据6栏，偏移量为3像素  -->
+        <div class="row col-md-6 col-md-offset-3">
+            <table class="table table-striped" id="user_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>家乡</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+            <div class="row">
+                <form name="aiForm">
+                    <div class="form-group">
+                        <label for="questionInput">提问</label>
+                        <input 
+                        type="text"
+                        id="questionInput"
+                        class="form-control"
+                        name="question"
+                        placeholder="请输入提问"
+                        required
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-default" name="btn">查询</button>
+                </form>  
+            </div>
+        </div>
+    </div>
+    <script>
+    // js 主动向后端发送数据接口请求
+    // 前端 向后端 拉取数组
+    // 这里的user是localhost：3000访问到user.json里面的数组
+    const tableBody = document.querySelector('table tbody');
+    const oForm = document.forms['aiForm'];
+    let usersData ;
+
+    fetch('http://localhost:3000/users')
+        // .then数据到达前端，但是二进制格式，需要转换为json格式，才能使用
+        .then(response => response.json())
+        .then(users => {
+            usersData = users;
+        // 处理返回的数据
+        for(let user of users){
+            const tr = document.createElement('tr');
+            // for in json 遍历对象
+            for(let key in user){
+                const td = document.createElement('td');
+                td.innerHTML = user[key];
+                tr.appendChild(td);
+            }
+            // const td1 = document.createElement('td');
+            // tr.appendChild(td1);
+            // td1.textContent = user.id;
+
+            // const td2 = document.createElement('td');
+            // tr.appendChild(td2);
+            // td2.textContent = user.name;
+            
+            // const td3 = document.createElement('td');
+            // tr.appendChild(td3);
+            // td3.textContent = user.hometown;
+            
+            tableBody.appendChild(tr);
+        }
+        })
+        .then(users=>{
+        // 监听表单提交事件
+        oForm.addEventListener('submit',(e)=>{
+            // 阻止表单默认行为
+            e.preventDefault();
+            // 可以使用fetch 在页面不刷新的时候向 ai server 发出请求
+            const question = oForm['question'].value.trim();
+            if(question === ''){
+                alert('请输入问题');
+                return;
+            }
+            //JSON.stringify 把js对象转化为json字符串序列化
+            fetch(`http://localhost:1314/api?question= ${question}&data=${JSON.stringify(usersData)}`)
+                .then(data=>data.json())
+                .then(data=>{
+                    console.log(data);
+                })
+            // 向后端发送数据
+        })
+    })
+    </script>
+</body>
+</html>
