@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类数组</title>
+</head>
+<body>
+    <p>这是第1个段落</p>
+    <p>这是第2个段落</p>
+    <p>这是第3个段落</p>
+    <p>这是第4个段落</p>
+    <p>这是第5个段落</p>
+    <p>这是第6个段落</p>
+    <p>这是第7个段落</p>
+    <p>这是第8个段落</p>
+    <p>这是第9个段落</p>
+    <p>这是第10个段落</p>
+    <script>
+        const nodeList = document.getElementsByTagName('p');
+        const nodeArr = document.querySelectorAll('p');
+        // nodeArr.forEach(node=>{
+        //     console.log(node.__proto__.constructor);
+        // })
+        // console.log(nodeList);
+        // console.log(nodeArr);
+        nodeList.join(',')
+    </script>
+</body>
+</html>
