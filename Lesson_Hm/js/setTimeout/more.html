@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this more</title>
+</head>
+<body>
+    <script>
+        var name = "windowNmae";
+        var a = {
+            name:"aNmae",
+            func1:function(){
+                console.log(this.name)
+            },
+            func2:function(){
+                // 箭头函数  编译阶段  没有this  指向父级作用域
+                setTimeout((function(){
+                    this.func1()
+                    // 手动绑定  
+                    // call 编译阶段
+                }).call(a),1000)
+            },
+        }
+        a.func2()
+    </script>
+</body>
+</html>
