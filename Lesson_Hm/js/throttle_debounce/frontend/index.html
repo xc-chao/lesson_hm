@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="unDebounceInput">用户搜索</label>
+        <input 
+        type="text"
+        id="unDebounceInput"
+        placeholder="请输入要搜索的用户名字"
+        required
+        >
+        <tbody>
+
+        </tbody>
+    </div>
+    <script>
+        // 通往后端接口
+        const userInput = document.getElementById('unDebounceInput');
+        const tbody = document.querySelector('tbody')
+        // 当作为事件处理函数来用时，this 指向事件的目标元素
+        userInput.addEventListener('keyup',function(){
+            // console.log('用户输入了',this.value)
+            fetch("http://localhost:3001/user")
+           .then(res=>res.json())// 解析响应体为JSON格式
+            .then(users=>{
+                // filter是一个数组方法，用于过滤数组中的元素，返回符合条件的元素组成的新数组
+               const filterUsers = users.filter(user =>
+                    user.name.includes(this.value)
+                )
+                console.log(filterUsers)   
+          })
+        })
+    </script>
+</body>
+</html>

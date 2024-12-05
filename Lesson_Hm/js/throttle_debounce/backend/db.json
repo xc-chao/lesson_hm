@@ -1,0 +1,30 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "徐佳豪"
+    },
+    {
+      "id": "2",
+      "name": "熊凯闻"
+    },
+    {
+      "id": "3",
+      "name": "刘帆"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "react",
+      "content": "react是一个js库",
+      "authorId": "1"
+    },
+    {
+      "id": "2",
+      "title": "React + Json-Server",
+      "content": "这是我的第二篇博客",
+      "user_id": 2
+    }
+  ]
+}
