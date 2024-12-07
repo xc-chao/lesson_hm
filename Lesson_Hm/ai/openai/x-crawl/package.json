@@ -1,0 +1,15 @@
+{
+  "name": "x-crawl",
+  "version": "0.0.1",
+  "description": "- package.json\r   项目描述文件\r   - dependencies 依赖部分？\r   - devDependencies 开发期间的依赖\r   - scripts 脚本\r     npm run dev （development）",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "x-crawl": "^10.0.2"
+  }
+}
