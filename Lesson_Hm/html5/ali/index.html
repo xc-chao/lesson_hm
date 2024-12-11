@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 75px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿里双11</title>
+    <script>
+        // 阻塞 动态设计 htm-font-size
+        // 立即执行函数
+        (function(){
+            function calc(){
+                const w = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize = w / 10 + 'px';
+            }
+            calc()
+            window.onresize = function(){
+                console.log('resize')
+                calc()
+            };
+        }())
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <div style="width: 10rem;height: 2rem;background-color: red;"></div>
+        <div style="font-size: 0;"> 
+            <!-- // 解决方法一 换行符也是一个字符font-size = 0  解决方法二 父级设置 display:inline-block" -->
+            <div style="width: 5rem;height: 2rem;background-color: green;display: inline-block;font-size: 20px; color: black;">111</div>
+            <div style="width: 5rem;height: 2rem;background-color: blue;display: inline-block;">222</div>
+        </div>
+    </div>
+</body>
+</html>
