@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 地球</title>
+    <!-- 画地球 选择框架 加速绘制流程 -->
+    <script src="https://cdn.bootcss.com/three.js/r83/three.min.js"></script>
+</head>
+<body>
+    <!-- html5 画布 绘制 -->
+    <canvas id="webglcanvas"></canvas>
+    <script>
+        // 3D 地球
+        // 3D 时间就是镜头拍出来的世界，导演
+        let canvas,// 3d 容器
+            camera,// 3d 镜头
+            scene,// 3d 世界
+            renderer,// 3d 渲染
+            group;// 3d 组装器
+            // 物品
+            let mouseX = 0, mouseY = 0; // mousemove 坐标
+            let windowHalfX = window.innerWidth/2; // 窗口一半
+            let windowHalfY = window.innerHeight/2; // 窗口一半
+            init();
+
+            // 准备
+            function init(){
+                canvas = document.getElementById('webglcanvas');
+                camera = new THREE.PerspectiveCamera(60,window.innerWidth/window.innerHeight,1,2000);// 实例化照相机
+                // 设置照相机位置离scene的距离
+                camera.position.z = 500; // 照相机距离
+
+                scene = new THREE.Scene(); // 实例化场景
+                scene.background = new THREE.Color(0xffffff); // 背景颜色
+
+                group = new THREE.Group();// 组
+                scene.add(group);
+
+                // 纹理加载器 
+                let loader = new THREE.TextureLoader(); // 简单的加载器
+                loader.load('land_ocean_ice_cloud_2048.jpg',function(Texture){
+                    let geometry = new THREE.SphereGeometry(200,20,20); // 球体
+                    let material = new THREE.MeshBasicMaterial({ // 材质
+                        map:Texture
+                    });
+                    let mesh = new THREE.Mesh(geometry,material); // 网格
+                    group.add(mesh);
+                    // 渲染器 目标是canvas
+                    renderer = new THREE.WebGLRenderer({
+                        canvas:canvas,
+                        antialias:true
+                    });
+                    renderer.setSize(window.innerWidth,window.innerHeight); // 设置画布大小
+                    // renderer.render(scene,camera); // 渲染
+                    // 监听鼠标移动
+                    document.addEventListener('mousemove',onDocumentMouseMove,false);
+
+                })
+            }
+            // 监听鼠标移动
+            function onDocumentMouseMove(event){
+                mouseX = (event.clientX - windowHalfX);//
+                mouseY = (event.clientY - windowHalfY);
+                // 旋转
+                group.rotation.y = mouseX * 0.0005;
+                group.rotation.x = mouseY * 0.0005;
+            } 
+            // 渲染
+            function animate(){
+                // 递归 屏幕的刷帧率 60帧/s
+                requestAnimationFrame(animate);// 动画 渲染
+                render()
+            }
+            function render(){
+                // 旋转
+                camera.position.x += (mouseX - camera.position.x) * 0.05; // 旋转 x轴 旋转速度 0.005 弧度
+                camera.position.y += (mouseY - camera.position.y) * 0.05; // 旋转 Y轴 旋转速度 0.005 弧度
+                camera.lookAt(scene.position); // 镜头对准场景
+                group.rotation.y += 0.005; // 旋转 y轴 旋转速度 0.005 弧度
+                renderer.render(scene,camera);
+            }
+            animate();
+    </script> 
+</body>
+</html>
