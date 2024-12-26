@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE 更专注于业务（数据 + 配套的语法）</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{title}}</h2> 
+        <input type="text" id="tod-input" v-model="title">
+    </div>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <script>
+        const App = {
+            data(){
+                return{
+                    title:""
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>
