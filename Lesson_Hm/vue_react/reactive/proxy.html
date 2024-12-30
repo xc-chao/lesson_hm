@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <div id="container">1</div>
+    <div id="count">2</div>
+    <button id="cutton">+1</button>
+    <button id="btn">*2</button>
+    <script>
+        // 匿名函数->立即执行函数 + 回调函数（事件处理函数、定时器、文件操作）
+        (function(){
+            // 函数作用域
+            // 设计模式 观察者模式
+            function watch(target,func){
+                // es6  proxy 代理
+                const proxy = new Proxy(target,{
+                    get:function(target,prop){
+                        console.log(`读了${target}${prop}属性`);
+                        return target[prop];
+                    },
+                    set:function(target,prop,newValue){
+                        console.log(`修改了${target}${prop}属性`);
+                        target[prop] = newValue;
+                        func(prop,newValue);
+                    }
+                })
+                return proxy;
+            }
+            // 暴露全局
+            this.watch = watch;
+        })()
+    let obj = {
+        value:1,
+        count:2
+    }
+    // 代理对象
+    var newObj = watch(obj,function(key,newValue){
+        if(key==='value'){
+            document.getElementById('container').innerHTML = newValue;
+        }
+        if(key==='count'){
+            document.getElementById('count').innerHTML = newValue;
+        }
+    })
+    // 事件处理函数
+    document.getElementById('cutton')
+           .addEventListener('click',function(){
+            // 交给代理对象去处理
+                newObj.value++;
+           })
+
+    document.getElementById('btn')
+          .addEventListener('click',function(){
+            // 交给代理对象去处理
+                newObj.count *= 2;
+           })   
+    </script>
+</body>
+</html>
