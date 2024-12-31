@@ -1,0 +1,8 @@
+/* 全局样式 */
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;/* 清除列表样式 */
+}
