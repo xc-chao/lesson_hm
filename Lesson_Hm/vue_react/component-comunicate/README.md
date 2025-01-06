@@ -1,0 +1,14 @@
+- vue3 响应式
+  - ref 把一个值变成响应式数据 .value 
+    - 响应式对象 Object.defineProperty value
+    - 性能好
+  - reactive 把一个对象变成响应式数据  
+    - 响应式代理 proxy 代理整个对象
+    - 开销大
+
+- 父子组件通信
+  - props 父传子
+  - @child-message = "handleEvent" 自定义事件 + 处理函数
+  - $emit('child-message') 触发自定义事件(选项式API)
+  - defineEmit() 
+    - emit('child-message', 数据) 触发自定义事件(组合式API)
