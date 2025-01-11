@@ -6,6 +6,7 @@ import {
 import About from '../page/About.vue'
 import Login from '../page/Login.vue'
 
+// 路由配置数组
 const routers = [
     {
         path: '/',
@@ -37,20 +38,19 @@ const routers = [
         }
     }
 ]
-// // 路由守卫 
-// const routerGuard = (to,from,next)=>{
-//     console.log(to,from);
-//     if(to.meta.requireLogin){
-//         // 登录
-//         next()
-//     }else{
-//         next()
-//     }
-// }
-
+// 创建路由
 const router = createRouter({
-    history:createWebHistory(),
-    routes:routers
+    history: createWebHistory(),
+    routes: routers
 })
 
+// 路由守卫
+router.beforeEach((to,from,next)=>{
+    document.title=to.meta.title ||'掘金'; // 动态设置标题
+    // if(to.meta.requireLogin){
+    //     next('/login')
+    //     return 
+    // }
+    next()
+})
 export default router;
