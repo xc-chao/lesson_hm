@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todos</title>
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <style>
+        .done {
+          color: gray;
+          text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <!-- 挂载点，vue 作用范围 -->
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input type="text" v-model="title" @keydown.enter="addTodo" />
+        <ul>
+            <li v-for="todo in todos">
+                <input type="checkbox" v-model="todo.done" />
+                <span :class="{done:todo.done}">{{todo.title}}</span>
+            </li>
+        </ul>
+        <div>
+            全选<input type="checkbox" v-model="allDone">
+            <span>{{active}}/{{all}}</span>
+        </div>
+    </div>
+    <script>
+        const App = {
+            data(){
+                return {
+                    title: 'todos',
+                    todos: [
+                        {title: '吃饭', done: false},
+                        {title: '睡觉', done: true},
+                        {title: '打豆豆', done: false},
+                    ]
+                }
+            },
+            methods:{
+                addTodo(){
+                    this.todos.push({title: this.title, done: false})
+                    this.title = ''
+                }
+            },
+            computed:{
+                all(){
+                    return this.todos.length
+                },
+                active(){
+                    return this.todos.filter(todo => !todo.done).length
+                },
+                allDone:{
+                    get(){
+                        return this.active === 0 // 如果没有未完成的任务，就返回true
+                    },
+                    set(value){
+                        // 当点击全选按钮时，将所有的done设置为value
+                        this.todos.forEach(todo => todo.done = value)
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app')
+    </script>
+</body>
+</html>

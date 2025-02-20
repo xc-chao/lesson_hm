@@ -1,0 +1,1 @@
+const hello = <p className="txt" style="font-size:2">hello <span>world</span><span>刘总好</span></p>

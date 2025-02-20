@@ -1,0 +1,16 @@
+{
+  "name": "gpt4o",
+  "version": "1.0.0",
+  "description": "- 多模态\r   - 单模态",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.72.0"
+  }
+}

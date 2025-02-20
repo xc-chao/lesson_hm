@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 面向对象 OO编程
+        // const 声明一个常量 常量的值不能被改变
+        // js 对象字面量 创建一个对象
+        // js 具有强大的表现力 简单
+        const myy = {
+            name: "美羊羊", // string 字符串
+            age: 17, // number 整数 + 浮点数
+            hometow: "青青草原", // string 字符串
+            hobbies: ['学习', '装饰'], // js没有数组， 只有对象
+            isSingle: true, // boolean 布尔值   
+            //形参      
+            senFlower: function(target){
+                target.recevieFlower(dal);
+            }
+
+        }
+        //声明了一个常量对象 对象字面量 从字面意义上就可以了解对象
+        const xyy = {
+            name: "喜羊羊",
+            age: 19,
+            hometow: "青青草原",
+            sex: "female",
+            hobbies: ['学习', '冒险'],
+            xq: 50,
+            isSingle: true,
+            recevieFlower: function(sander){
+                if(xm.xq < 80){
+                    console.log("我还不够好，你在好好想想吧！");
+                    return;
+                }else{
+                console.log(xm.name+"收到了"+sander.name+"的花,有情人终成眷属！");
+                }
+            }
+        }
+        // 用js 做导演  让对象之间产生联系
+        const fyy = {
+            name: "沸羊羊",
+            age: 18,
+            hometow: "青青草原",
+            sex: "female",
+            hobbies: ['学习', '锻炼'],
+            isSingle: true,
+            // 每个女生都有收花的权利, 接口 interface
+            recevieFlower: function(sander){
+                // === 绝对相等  类型和值都要相等(恒等)
+                // if(sander.name === "美羊羊"){
+                //     console.log("让我们在一起吧，暗恋你好久了......");
+                //     return;
+                // }
+                // xm.recevieFlower(sander);
+                // 定时器  2秒后执行  匿名函数(没有名字的函数)
+                setTimeout(function(){
+                    xm.xq = 99;
+                    xm.recevieFlower(sander);
+                },2000)
+            }
+        }
+    </script>
+</body>
+</html>

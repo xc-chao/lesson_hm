@@ -1,0 +1,167 @@
+/* css + reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;/*继承字体*/
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 业务样式 */
+html,body{
+    height: 100vh;
+
+}
+body {
+    background: #000 url('./images/bg.jpg');
+
+}
+.starwars {
+    perspective: 800px;
+    transform-style: preserve-3d;/*子元素3d*/
+    height: 17em;/*高度*/
+    width: 34em;
+    position:absolute;/*绝对定位*/
+    top: 50%;
+    left: 50%;
+    /* 移动 相对自身的大小 */
+    transform: translate(-50%,-50%);/*居中方式之一*/
+    /* background-color: red; */
+}
+img{
+    width: 100%;
+}
+.star,.wars,.byline{
+    position: absolute;
+}
+.satr{
+    top: -0.75em;
+}
+.wars{
+    bottom: -0.5em;
+}
+.byline{
+    color: white;
+    font-size: 2.25em;
+    left: -2em;
+    right: -2em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 42%;
+}
+/* 动作导演 */
+.star{
+    /* 动画名称 + keyframes 定义动作 */
+    animation: star 10s ease-out infinite;
+
+}
+.wars{
+    animation: wars 10s ease-out infinite;
+}
+
+@keyframes star{
+
+    0%{
+        opacity: 0;
+        transform: scale(1.5) translate(-0.75em);
+    }
+    20%{
+        opacity: 1;
+        
+    }
+    89%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-1000em);
+    }
+
+}
+@keyframes wars{
+
+    0%{
+        opacity: 0;
+        transform: scale(1.5) translate(0.5em);
+    }
+    20%{
+        opacity: 1;
+
+    }
+    92%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateZ(-1000em);
+    }
+}
+.byline{
+    animation: movie-byline 10s linear infinite;
+}
+.byline span{
+    animation: spin-letters 10s linear infinite; 
+    display: inline-block;
+}
+@keyframes movie-byline{
+    0%{
+        transform:translateZ(5em);
+    }
+    100%{
+        transform: translateZ(0em);
+    }
+}
+@keyframes spin-letters{
+    0%, 10%{
+        opacity: 0;
+        transform: rotateY(90deg);
+    }
+    30%{
+        opacity: 1;
+    }
+    70%, 86%{
+        transform: rotateY(0);
+        opacity: 1;
+    }
+    95%, 100%{
+        opacity: 0;
+    }
+}

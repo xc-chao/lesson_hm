@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css</title>
+    <style>
+        /* css_Ruleset */
+        /* 1分 */
+        p{
+            /* important权重值最高 */
+            color:blue !important;
+        }
+        /* 101分 */
+        .container p {
+            color:red;
+        }
+        /* 11分 */
+        #main p{
+            color:green;
+        }
+        /* 111分 */
+        #main.container p{
+            color:yellow;
+        }
+        /* 
+           标签优先级为1
+           class 优先级为10
+           id 优先级为100 
+        */
+    </style>
+</head>
+<body>
+    <!-- attribute 属性 -->
+    <div id="main" class="container">
+        <p>这是一段小清的爱情故事</p>
+    </div>
+</body>
+</html>

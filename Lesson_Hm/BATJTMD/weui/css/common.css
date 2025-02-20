@@ -1,0 +1,83 @@
+/*
+* @author: xc-chao
+* @Date:   2024-11-16 16:04:28
+ */
+ /* Eric Meyer Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;/*继承字体*/
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 通用功能 */
+/* css 层叠样式表 
+   规则 选择器{
+       属性：属性值；
+    }
+       
+*/
+/* 这两个选择器之间用逗号 , 分隔，表示它们共享相同的样式规则。如果不写逗号，则是后代选择器，选择后面的样式。 */
+body,html{
+    height: 100%;
+}
+.page{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ededed;
+    overflow-y: auto;   
+}
+.page__hd{
+    padding: 40px;
+}
+.page__title{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+.page__desc{
+    margin-top: 4px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 14px ;
+    text-align: left;
+}

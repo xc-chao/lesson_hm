@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue3 Couter</title>
+    <!-- Vue3 不是本地 通过 cdn 引入 cdn是内容分发网络
+    静态资源（html，css，js，images） 动态（java，node，数据库，服务器集群
+     cdn 快速内容访问和发布机制 -->
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- vue 3 工作的挂载点 接管前端编程世界
+    DOM appendChild 性能不好 -->
+    <!-- {{LLM}}没挂载不显示 -->
+    <div id="root">
+        <!-- Vue应用的工作领地 -->
+         <h1>{{str}},走向{{LLM}},智能前端！</h1>
+        <h1>{{str}}</h1>
+        <p>Count:{{Count}}</p>
+        <button @click="increment()">点击加1</button>
+    </div>
+    <script type="module">
+        const{
+            createApp,ref
+        } = Vue
+        createApp({
+            // 组合式API 
+            // 准备应用需要的数据
+            setup(){
+                const Count1 = 0 // 简单数据
+                const Count = ref(0) // 响应式数据
+                console.log(Object.prototype.toString.call(Count))
+                const str = "hello vue"
+                // 准备应用需要的操作
+                const increment = () =>{
+                    Count.value++
+                    // Count1++; 不能这样写，因为Count1是简单数据，不是响应式数据
+                }
+                return{
+                    Count,
+                    str,
+                    LLM:"LLM3" ,// 没有挂载
+                    increment
+                }   
+            }
+        }).mount("#root")
+        console.log("hello vue")
+    </script>
+</body>
+</html>

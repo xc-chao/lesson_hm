@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditInPlace 哔哩哔哩用户体验打造</title>
+    <style>
+        .inline-block{
+            display: inline-block;
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="ep1">
+            <span id="content">男德学院一等奖学金获得者</span>
+            <input type="text" id="input" value="男德学院一等奖学金获得者">
+            <input type="button" id="save" value="Save">
+            <input type="button" id="cancel" value="Cancel">
+        </div>
+    </div>
+    <script>
+        // Dom js html 节点对象 动态操作html
+        const content = document.getElementById('content');
+        const input = document.getElementById('input');
+        const save = document.getElementById('save');
+        const cancel = document.getElementById('cancel');
+        // 文本状态，将编程状态隐藏，封装为函数
+        function converToText(){
+            input.style.display = 'none';
+            save.style.display = 'none';
+            cancel.style.display = 'none';
+            content.style.display = 'inline';
+        }
+        // 编辑状态，将文本状态隐藏，封装为函数
+        function converToEdit(){
+            input.style.display = 'inline';
+            save.style.display = 'inline';
+            cancel.style.display = 'inline';
+            content.style.display = 'none';
+        }
+        // 初始化状态为文本状态
+        converToText();
+        converToEdit();
+        // addEventListener 事件监听 鼠标移入事件
+        content.addEventListener('mouseover', function() {
+            input.value = content.innerText; // innerText 文本内容, 更新为最新的签名
+            input.style.display = 'inline-block';
+            save.style.display = 'inline-block';
+            cancel.style.display = 'inline-block';
+            content.style.display = 'none';
+        });
+        // 保存事件
+        save.addEventListener('click', function() {
+            content.innerText = input.value;
+            converToText();
+            content.style.display = 'inline-block';
+        });
+        // 取消事件  
+        cancel.addEventListener('click', function() {
+            input.value = content.innerText;
+            converToText();
+        });
+    </script>
+</body>
+</html>

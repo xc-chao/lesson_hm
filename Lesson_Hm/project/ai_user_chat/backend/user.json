@@ -1,0 +1,19 @@
+{
+    "users":[
+        {
+            "id":1,
+            "name":"小超",
+            "hometown":"宜春"
+        },
+        {
+            "id":2,
+            "name":"小威",
+            "hometown":"宜春"
+        },
+        {
+            "id":3,
+            "name":"小刘",
+            "hometown":"抚州"
+        }
+    ]
+}

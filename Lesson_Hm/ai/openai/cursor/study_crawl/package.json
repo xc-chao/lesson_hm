@@ -1,0 +1,17 @@
+{
+  "name": "study_crawl",
+  "version": "1.0.0",
+  "description": "你好，现在假如你是一个爬虫高手，请你帮我编写一个node程序，去爬取微博热榜。\r # 要求如下：\r 1.\r ①：请你使用request-promise发送请求。\r ②：请你使用cheerio去解析请求。\r ③：请你使用csv-writer去将爬取数据写入web_hotList的csv文件里面。\r 2.目标网址：@@https://tophub.today/n/KqndgxeLl9 \r 3.请你爬取表格中的热榜的，排名、标题、热度、链接，并以表格的形式写在csv文件里面。\r 请你一步一步思考上面描述，你可以去打开目标网址，去分析网页结构，然后编写代码。",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "csv-writer": "^1.6.0",
+    "request-promise": "^4.2.6"
+  }
+}

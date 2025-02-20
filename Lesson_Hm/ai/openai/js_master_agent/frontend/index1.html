@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coze Logo AIGC</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <!-- 分栏 页面布局 -->
+      <div class="col-md-6">
+        <form name="appForm">
+          <div class="form-group">
+            <label for="titleInput">Bot名称：</label>
+            <input type="text" name="title" id="titleInput"
+             class="form-control"
+            placeholder="请输入名称"
+            >
+          </div> 
+          <!-- 无障碍访问ID 读屏自动聚焦 -->
+          <!-- 这里的label里面的for = "titleInput" 表示这个label 绑定了id = "titleInput"的input 这样点击label 会自动聚焦到这个input 上 -->
+          <div class="form-group">
+            <label for="descInput">Bot描述：</label>
+            <textarea name="desc"
+             class="form-control"
+            placeholder="请输入描述"
+            row = "3"
+             ></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit"
+                class="btn btn-default btn-primary">
+                生成图标
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

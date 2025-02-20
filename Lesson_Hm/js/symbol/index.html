@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <script>
+        // 为什么要有symbol 呢？ 放心加进去，绝对不会重复
+        // 适用于什么场景下？ 
+        const wes = Symbol('wes')
+        // 学生 对象字面量 
+        let name = "徐超"
+
+        const classMates = {
+            // 字符串 覆盖
+            "xc":1,
+            "xc":2,
+            [name]:'猛男',
+            // symbol 可以代替 字符串作为key
+            // 为什么加上[] 呢？ 因为symbol 是一个数据类型,需要运行一下，才能拿到值，需要用[]包裹起来
+            [Symbol('Mark')]:{grade:50,male:'male'},
+            [Symbol('olivia')]:{grade:80,male:'female'},
+            [Symbol('olivia')]:{grade:80,male:'female'},
+        }
+        console.log(classMates[name],classMates.xc)
+        for(let[key,value] of Object.entries(classMates)){
+            console.log(key,value)
+        }
+
+        for(const person in classMates){
+            console.log(person,classMates[person])
+        }
+
+        const syms = Object.getOwnPropertySymbols(classMates)
+        console.log(syms)
+
+        const data = syms.map(sym => {
+            return classMates[sym].grade
+        })  
+        console.log(data)
+        // 属性描述符
+        console.log(Object.getOwnPropertyDescriptors(classMates))
+    </script>
+ </body>
+ </html>v 

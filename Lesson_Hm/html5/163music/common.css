@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  .music-btn {
+    z-index: 999;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+    background: url(assert/assert/close.png) no-repeat center / cover;
+  }
+  .music-btn.off {
+    background-image: url(assert/assert/music.png);
+  }
+  /* 单屏 滑屏h5 效果 */
+  .swiper-container{
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    background-color: green;
+  }
+  .swiper-slide:nth-child(odd) {
+    background-color: pink;
+  }
+  .next-view-c {
+    z-index: 999;
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/gx.4ae36e08269404412ecdb99e9453ca17.svg);
+    background-size: 100%;
+    left: 50%;
+    bottom: 10px;
+    width: 13px;
+    height: 86px;
+    position: fixed;
+    /* 网页的性能 transform3d 会开启 gpu 加速  
+      gpu 利用显存计算页面
+    */
+    transform: translate3d(-50%, 0, 0);
+  }
+  .view {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .view.index {
+    background: url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/bgg.d78404cec29e5275598b87d1716f0592.png);
+    position: absolute;
+    background-position: center;
+    background-size: cover;
+  }
+  .logo-c {
+    position: absolute;
+    top: 5.6%;
+    right: 15%;
+    width: 186px;
+    height: 218px;
+    background:url(http://s5.music.126.net/static_public/5c21db8d4684556c72180904/title@2x.7c87506dfb012b9dfac5fdd39e2ccb06.png) no-repeat;
+    background-size: 100%;
+  }

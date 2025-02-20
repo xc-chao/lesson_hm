@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>React Counter Example</title>
+    <!-- 引入React库 -->
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+    <!-- 应用程序挂载点 -->
+     <!-- 挂载点 -->
+    <div id="root"></div>
+    <script type="text/babel">
+       const{
+        useState // 状态管理和vue的响应式数据类似
+       } = React
+        // 函数组件 返回了一个虚拟DOM（html）
+        function Counter(){
+            // const count = 0;
+            const [count,setCount] = useState(0)
+            const increment = () =>{
+                setCount(count+1) // setCount 是一个函数 不是一个数据 不能直接count++
+            }
+            return(
+                <div>
+                    Count:{count}  
+                    <button onClick={increment}>点击加1</button>// onClick 事件监听 一个{}数据占位符 
+                </div>
+            )
+        } 
+        ReactDOM.render(<Counter />, document.getElementById('root'))
+    </script>
+</body>
+</html>

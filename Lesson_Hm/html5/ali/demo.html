@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en"">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 阻塞 来动态设置 html font-size 
+        // 立即执行函数
+        (function() {
+          // console.log('立即执行函数')
+          function calc() {
+            const w = document.documentElement.clientWidth;
+            console.log(w);
+            document.documentElement.style.fontSize 
+              = 75*(w / 750) + 'px';
+          } 
+          calc()
+          // 监听窗口变化
+          window.onresize = function() {
+            // console.log('resize')
+            calc();
+          }
+        })()
+    </script>
+     <style>
+        * {
+          margin: 0;
+          padding: 0;
+        }
+        ul, li {
+          list-style: none;
+        }
+        html, body {
+          height: 100%;
+          /* background-color: green; */
+        }
+        .item-section {
+          min-height: 100%;
+          background-color: #ee0a3b;
+          position: relative;
+          font-size: 24px;
+        }
+        .item-section_header img {
+          width: 10rem;
+        }
+        .item-section ul {
+            padding: 0.13333rem;
+        }
+        .flag{
+            display: table;
+            width: 100%;
+            margin-bottom: 1px;
+            background-color: white;
+        }
+        .flag .flag-item{
+            /* inline -> table-cell; */
+            display: table-cell;
+            padding: 0.16rem 0;
+            vertical-align: top;
+            background-color: #fff;
+        }
+        .flag .flag-item.figure{
+            width: 2.346667rem;
+            height: 2.346667rem;
+        }
+        .flag .flag-title a{
+            font-size: 14px;
+            color: #333;
+            line-height: 1.25;
+            text-align: center;
+            text-decoration: none;
+        }
+        .flag .flag-item.figcation{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="item-section">
+        <div class="item-section_header">
+            <h2>
+                <img src="http://gw.alicdn.com/mt/TB1PNLZKXXXXXaTXXXXXXXXXXXX-750-481.jpg" alt="">
+            </h2>
+            <ul>
+                <li class="flag">
+                    <a href="#" class="figure flag-item">
+                        <img src="https://placeimg.com/350/350/people/grayscale" alt="">
+                    </a>
+                <div class="figcation flag-item">
+                    <div class="flag-title">
+                        <a href="#">Carter's1年式灰色长袖连体衣</a>
+                    </div>
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
