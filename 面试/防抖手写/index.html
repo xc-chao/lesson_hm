@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+</head>
+<body>
+    <button class="btn">点击</button>
+    <script>
+        function send(){
+            console.log('hello');
+        }
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click',debounce(send,1000));
+        function debounce(fn,delay){
+                let id;
+            return ()=>{
+                if (id){
+                    // 如果id存在，说明之前已经设置过定时器，那么就清除之前的定时器
+                    clearTimeout(id); 
+                }
+                // 重新设置一个定时器
+                id = setTimeout(function(){
+                    send();
+                },delay);
+        }
+    }
+    </script>
+</body>
+</html>
