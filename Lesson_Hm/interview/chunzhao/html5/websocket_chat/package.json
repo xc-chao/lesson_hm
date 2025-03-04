@@ -1,0 +1,16 @@
+{
+  "name": "websocket_chat",
+  "version": "1.0.0",
+  "description": "- TCP/IP 是传输层协议\r   建立连接 \r - HTTP 协议， 而WebSocket 是应用层协议。\r   - 长链接\r   - 消息推送\r   - 广播\r - B/S 架构\r - 即时通讯 Socket 协议",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.16.0",
+    "koa-websocket": "^7.0.0"
+  }
+}
